@@ -45,8 +45,9 @@ For complete debugging of the SSL handshake, the following java parameter can be
 To get usage information - include the `-h` option:
 
 ```
-$ java -cp . SSLClient -h
+$ java SSLClient -h
 Usage: SSLClient <host> <port>
+  -h  prints usage information
 Make sure the following java options are set to the keystores/truststores you're testing:
 
   -Djavax.net.ssl.keyStore=<location of your keystore>
@@ -80,10 +81,11 @@ the `-clientAuth` parameter.
 To get usage information - include the `-h` option:
 
 ```
-$ java -cp . SSLServer -h
+$ java SSLServer -h
 Usage:  java SSLServer <port> [-clientAuth]
-  port - the port number that the server should listen on
-  -clientAuth - if included sets the server to request mutual authentication
+  port         the port number that the server should listen on
+  -h           prints usage information
+  -clientAuth  if included sets the server to request mutual authentication
 
 To test specific keystores and truststores, they should be provided via the env variables:
   -Djavax.net.ssl.keyStore=<keystorefile>

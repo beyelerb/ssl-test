@@ -42,6 +42,23 @@ The following environment variables can be set to control what context the clien
 For complete debugging of the SSL handshake, the following java parameter can be added:
 * -Djavax.net.debug=ssl,handshake
 
+To get usage information - include the `-h` option:
+
+```
+$ java -cp . SSLClient -h
+Usage: SSLClient <host> <port>
+Make sure the following java options are set to the keystores/truststores you're testing:
+
+  -Djavax.net.ssl.keyStore=<location of your keystore>
+  -Djavax.net.ssl.keyStorePassword=<keystore password>
+  -Djavax.net.ssl.trustStore=<location of your truststore>
+  -Djavax.net.ssl.trustStorePassword=<truststore password>
+
+For handshaking debugging output, add the following option:
+
+  -Djavax.net.debug=ssl,handshake
+```
+
 ## SSLServer
 SSLServer allows you to start up a server using a specific keystore and truststore. It also allows you to 
 specify whether you want mutual authentication enabled \(required\). The server listens for a connection
@@ -57,6 +74,26 @@ that the server uses for its identity and its trust:
 Likewise, for complete debugging of the SSL handshake, the following java parameter can be added:
 * -Djavax.net.debug=ssl,handshake
 
+SSLServer provides an option to force client authentication \(mutual TLS\). This option is specified using
+the `-clientAuth` parameter.
+
+To get usage information - include the `-h` option:
+
+```
+$ java -cp . SSLServer -h
+Usage:  java SSLServer <port> [-clientAuth]
+  port - the port number that the server should listen on
+  -clientAuth - if included sets the server to request mutual authentication
+
+To test specific keystores and truststores, they should be provided via the env variables:
+  -Djavax.net.ssl.keyStore=<keystorefile>
+  -Djavax.net.ssl.keyStorePassword=<password>
+  -Djavax.net.ssl.trustStore=<truststore file>
+  -Djavax.net.ssl.trustStorePassword=<password>
+
+For additional debug information, add the ssl debug option:
+  -Djavax.net.debug=ssl,handshake
+```
 ## Compiling
 ### What you need ###
 These were designed to be compiled directly rather than built with some sort of build tool such as maven, gradle, etc.

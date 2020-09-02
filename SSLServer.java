@@ -96,8 +96,9 @@ public class SSLServer {
 
   private static void printUsage() {
     System.out.println("Usage:  java " + SSLServer.class.getName() + " <port> [-clientAuth]\n" +
-        "  port - the port number that the server should listen on\n" +
-        "  -clientAuth - if included sets the server to request mutual authentication\n\n" +
+        "  port         the port number that the server should listen on\n" +
+        "  -h           prints usage information\n" +
+        "  -clientAuth  if included sets the server to request mutual authentication\n\n" +
         "To test specific keystores and truststores, they should be provided via the env variables:\n" +
         "  -Djavax.net.ssl.keyStore=<keystorefile>\n" +
         "  -Djavax.net.ssl.keyStorePassword=<password>\n" +
